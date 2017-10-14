@@ -1,30 +1,15 @@
 package com.example.cameratest;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.hardware.Camera;
 import android.net.Uri;
-import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE;
-import static android.content.ContentValues.TAG;
 
 public class MainActivity extends Activity {
     Button button;
@@ -51,16 +36,19 @@ public class MainActivity extends Activity {
 
     private File getFlie() {
         File folder = new File("sdcard/camera_app");
+
         if (!folder.exists()) {
             folder.mkdir();
         }
         File image_file = new File(folder, "cam_image.jpg");
+
         return image_file;
+
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent){
+        Intent chooseCategory = new Intent(this, chooseCat.class);
+        startActivity(chooseCategory);
     }
 
-
-    protected void onAcitivityResult(int requestCode, int resultCode, Intent data) {
-        String path = "sdcard/camera_app/cam_image.jpg";
-        imageView.setImageDrawable(Drawable.createFromPath(path));
-    }
 }

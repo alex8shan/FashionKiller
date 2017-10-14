@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Showpic"></activity>
+        <activity android:name=".chooseCat"></activity>
     </application>
 
 </manifest>
