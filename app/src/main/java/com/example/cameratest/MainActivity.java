@@ -2,6 +2,7 @@ package com.example.cameratest;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.icu.text.SimpleDateFormat;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.os.Bundle;
@@ -10,11 +11,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import java.io.File;
+import java.security.Timestamp;
 
 public class MainActivity extends Activity {
     Button button;
     ImageView imageView;
     static final int CAM_REQUEST = 1;
+    public static String imageName;
 
 
     @Override
@@ -28,6 +31,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 File file = getFlie();
+
                 camera_intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
                 startActivityForResult(camera_intent, CAM_REQUEST);
             }
@@ -35,19 +39,19 @@ public class MainActivity extends Activity {
     }
 
     private File getFlie() {
-        File folder = new File("sdcard/camera_app");
-
+        File folder = new File("sdcard/fashion_killer");
         if (!folder.exists()) {
             folder.mkdir();
         }
-        File image_file = new File(folder, "cam_image.jpg");
-
+        imageName = String.valueOf(System.currentTimeMillis())+".jpg";
+        File image_file = new File(folder, "lol.jpg");
         return image_file;
-
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent){
-        Intent chooseCategory = new Intent(this, chooseCat.class);
+        Intent chooseCategory = new Intent(getApplicationContext(), chooseCat.class);
+        Bundle extras = intent.getData();
+        chooseCategory.putExtras(extras);
         startActivity(chooseCategory);
     }
 
