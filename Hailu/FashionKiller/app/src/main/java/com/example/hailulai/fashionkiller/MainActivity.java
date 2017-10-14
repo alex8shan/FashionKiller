@@ -3,6 +3,7 @@ package com.example.hailulai.fashionkiller;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.hardware.Camera;
+import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -26,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
 
     private Camera mCamera = null;
     private CameraView mCameraView = null;
+    private Uri file;
+    Bitmap help1;
+    ImageView imageView;
+
+    ThumbnailUtils thumbnail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,21 +61,27 @@ public class MainActivity extends AppCompatActivity {
     }
     String mCurrentPhotoPath;
 
-    private File createImageFile() throws IOException {
-        // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
-                storageDir      /* directory */
-        );
+    private File getFile() {
+        File folder = Environment.getExternalStorageDirectory();// the file path
 
-        // Save a file: path for use with ACTION_VIEW intents
-        mCurrentPhotoPath = image.getAbsolutePath();
-        return image;
+        //if it doesn't exist the folder will be created
+        if(!folder.exists())
+        {folder.mkdir();}
+
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_"+ timeStamp + "_";
+        File image_file = null;
+
+        try {
+            image_file = File.createTempFile(imageFileName,".jpg",folder);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        mCurrentPhotoPath = image_file.getAbsolutePath();
+        return image_file;
     }
+
     static final int REQUEST_TAKE_PHOTO = 1;
 
     public void btnClick(View view){
@@ -77,25 +89,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void dispatchTakePictureIntent() {
+        // the intent is my camera
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        // Ensure that there's a camera activity to handle the intent
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            // Create the File where the photo should go
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException ex) {
-                // Error occurred while creating the File
+        //getting uri of the file
+        file = Uri.fromFile(getFile());
+        //Setting the file Uri to my photo
+        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,file);
 
-            }
-            // Continue only if the File was successfully created
-            if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this,
-                        "com.example.android.fileprovider",
-                        photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-            }
+        if(takePictureIntent.resolveActivity(getPackageManager())!=null)
+        {
+            startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
         }
     }
 }
