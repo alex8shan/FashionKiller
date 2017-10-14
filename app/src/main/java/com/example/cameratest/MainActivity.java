@@ -45,22 +45,17 @@ public class MainActivity extends Activity {
                 File file = getFlie();
                 camera_intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
                 startActivityForResult(camera_intent, CAM_REQUEST);
-
-
             }
         });
     }
 
     private File getFlie() {
         File folder = new File("sdcard/camera_app");
-
         if (!folder.exists()) {
             folder.mkdir();
         }
         File image_file = new File(folder, "cam_image.jpg");
-
         return image_file;
-
     }
 
 

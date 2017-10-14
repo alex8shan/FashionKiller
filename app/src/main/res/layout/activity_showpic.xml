@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.cameratest.Showpic">
+
+    <Button
+        android:id="@+id/switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get schwifty"
+        tools:layout_editor_absoluteX="131dp"
+        tools:layout_editor_absoluteY="243dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="173dp"
+        android:layout_height="236dp"
+        app:srcCompat="@android:color/darker_gray"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="7dp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="168dp"
+        android:layout_height="236dp"
+        app:srcCompat="@android:color/holo_blue_bright"
+        tools:layout_editor_absoluteY="7dp"
+        tools:layout_editor_absoluteX="200dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="213dp"
+        android:layout_height="208dp"
+        app:srcCompat="@android:color/holo_red_light"
+        tools:layout_editor_absoluteX="86dp"
+        tools:layout_editor_absoluteY="291dp" />
+
+</android.support.constraint.ConstraintLayout>
