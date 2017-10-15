@@ -22,7 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".second"></activity>
+        <activity android:name=".second" />
+        <activity android:name=".chooseCategory" />
+        <activity android:name=".Spinner"></activity>
     </application>
 
 </manifest>
