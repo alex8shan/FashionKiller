@@ -6,4 +6,39 @@
     android:layout_height="match_parent"
     tools:context="com.example.cameratest.Spinner">
 
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="349dp"
+        android:layout_height="54dp"
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="58dp" />
+
+    <EditText
+        android:id="@+id/Category1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <EditText
+        android:id="@+id/Category2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/spinner2"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="369dp"
+        android:layout_height="54dp"
+        tools:layout_editor_absoluteY="269dp"
+        tools:layout_editor_absoluteX="18dp" />
 </android.support.constraint.ConstraintLayout>

@@ -22,8 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".second" />
-        <activity android:name=".chooseCategory" />
+        <activity android:name=".ShowDress" />
+        <activity android:name=".ChooseCategory" />
         <activity android:name=".Spinner"></activity>
     </application>
 

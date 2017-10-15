@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/choose_Category"
-    tools:context="com.example.cameratest.chooseCategory">
+    tools:context="com.example.cameratest.ChooseCategory">
 
     <Button
         android:id="@+id/button_Capture"

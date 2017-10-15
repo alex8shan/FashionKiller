@@ -1,5 +1,6 @@
 package com.example.cameratest;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
@@ -12,16 +13,17 @@ import android.widget.Button;
 import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
-    Button button;
-    Button button_Category;
+    Button button_Capture;
+    Button button_Dress;
     static final int CAM_REQUEST = 1;
     public static String imageName;
     @Override
     protected void onCreate(Bundle savedInstanceBundle){
         super.onCreate(savedInstanceBundle);
         setContentView(R.layout.activity_main);
-        button = (Button) findViewById(R.id.button_Capture);
-        button.setOnClickListener(new View.OnClickListener() {
+        button_Capture = (Button) findViewById(R.id.button_Capture);
+        button_Dress = (Button) findViewById(R.id.button_Dress);
+        button_Capture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -32,13 +34,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, 0);
             }
         });
+        button_Dress.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(v.getContext(), Spinner.class);
+                startActivity(intent);
+            }
+         });
     }
-
-
+    
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         if (requestCode == 0 && resultCode == RESULT_OK){
-            Intent intent = new Intent(this, chooseCategory.class);
+            Intent intent = new Intent(this, ChooseCategory.class);
             intent.putExtra("FILENAME", imageName);
             startActivity(intent);
         }

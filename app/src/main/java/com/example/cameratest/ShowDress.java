@@ -20,7 +20,7 @@ import org.opencv.imgproc.Imgproc;
 import static org.opencv.imgproc.Imgproc.COLOR_BGR2GRAY;
 
 
-public class second extends AppCompatActivity {
+public class ShowDress extends AppCompatActivity {
 
     static {
         if(!OpenCVLoader.initDebug()){
