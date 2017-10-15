@@ -23,6 +23,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".swpiePage"></activity>
+        <activity android:name=".ChooseCat" />
+        <activity android:name=".ShowDress" />
+        <activity android:name=".Spinner"></activity>
     </application>
 
 </manifest>
