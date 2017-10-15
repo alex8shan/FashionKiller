@@ -12,25 +12,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="This is a long shirt"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="61dp"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="54dp"
+        app:layout_constraintTop_toBottomOf="@+id/shortshirt" />
 
     <Button
         android:id="@+id/shortshirt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="This is a short shirt"
-        android:layout_marginTop="63dp"
-        app:layout_constraintTop_toBottomOf="@+id/longshirt"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.502" />
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="74dp" />
 
     <Button
         android:id="@+id/pants"
@@ -38,26 +38,26 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="76dp"
         android:text="This is a pair of pants"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shortshirt"
-        app:layout_constraintHorizontal_bias="0.502" />
+        app:layout_constraintHorizontal_bias="0.502"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/shorts"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.505" />
 
     <Button
         android:id="@+id/shorts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="24dp"
         android:text="This is a pair of shorts"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pants"
-        app:layout_constraintVertical_bias="0.502" />
+        android:layout_marginTop="59dp"
+        app:layout_constraintTop_toBottomOf="@+id/longshirt" />
 </android.support.constraint.ConstraintLayout>
