@@ -23,7 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ChooseCat" />
-        <activity android:name=".ShowDress"></activity>
+        <activity android:name=".ShowDress" />
+        <activity android:name=".Spinner"></activity>
     </application>
 
 </manifest>
