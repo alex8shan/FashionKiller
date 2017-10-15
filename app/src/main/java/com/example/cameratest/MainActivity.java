@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ChooseCategory.class);
             intent.putExtra("FILENAME", imageName);
             startActivity(intent);
+
         }
     }
 
