@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
     Button button_Category;
     static final int CAM_REQUEST = 1;
     public static String imageName;
-    String filename;
     @Override
     protected void onCreate(Bundle savedInstanceBundle){
         super.onCreate(savedInstanceBundle);
@@ -26,25 +25,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                filename = "fname_" + String.valueOf(System.currentTimeMillis()) + ".jpg";
-                Uri imageUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), filename));
+                imageName = String.valueOf(System.currentTimeMillis()) + ".jpg";
+                //create the image at the root folder
+                Uri imageUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), imageName));
                 intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, imageUri);
                 startActivityForResult(intent, 0);
             }
         });
-
-
-    }
-
-    private File getFlie(){
-        File folder = new File("sdcard/camera_app");
-
-        if(!folder.exists()){
-            folder.mkdir();
-        }
-        imageName = String.valueOf(System.currentTimeMillis())+".jpg";
-        File image_file = new File(folder, imageName);
-        return image_file;
     }
 
 
@@ -52,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         if (requestCode == 0 && resultCode == RESULT_OK){
             Intent intent = new Intent(this, chooseCategory.class);
-            intent.putExtra("FILENAME", filename);
+            intent.putExtra("FILENAME", imageName);
             startActivity(intent);
         }
     }
