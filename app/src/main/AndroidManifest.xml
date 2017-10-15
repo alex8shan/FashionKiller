@@ -24,9 +24,8 @@
         </activity>
         <activity android:name=".ShowDress" />
         <activity android:name=".ChooseCategory" />
-        <activity android:name=".SpinnerActivity"></activity>
-
-
+        <activity android:name=".SpinnerActivity" />
+        <activity android:name=".Camera_Filter"></activity>
     </application>
 
 </manifest>
