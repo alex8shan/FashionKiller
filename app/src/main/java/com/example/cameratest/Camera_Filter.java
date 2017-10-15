@@ -56,7 +56,7 @@ public class Camera_Filter extends AppCompatActivity {
         if(imgFile.exists()){
 
             Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-            myBitmap = RotateBitmap(myBitmap, 90);
+            //myBitmap = RotateBitmap(myBitmap, 90);
             ImageView myImage = (ImageView) findViewById(R.id.imageView3);
 
             myImage.setImageBitmap(myBitmap);
@@ -75,6 +75,7 @@ public class Camera_Filter extends AppCompatActivity {
                 Intent intent = new Intent(Camera_Filter.this, ChooseCategory.class);
                 intent.putExtra("FILENAME", Camera_Filter.filename);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -95,7 +96,7 @@ public class Camera_Filter extends AppCompatActivity {
         Imgproc.GaussianBlur(tmp, tmp, new Size(5, 5), 0);
         Imgproc.cvtColor(tmp, tmp, Imgproc.COLOR_GRAY2RGB, 4);
         Mat src = new Mat();
-        Imgproc.Canny(tmp, src, 20, 120);
+        Imgproc.Canny(tmp, src, 10, 120);
         Mat kernel = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new  Size(5, 5));
         Imgproc.dilate(src, src, kernel);
         Imgproc.dilate(src, src, kernel);
