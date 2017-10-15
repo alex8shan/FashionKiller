@@ -14,7 +14,6 @@ import java.io.File;
 public class MainActivity extends AppCompatActivity {
     Button button_Capture;
     Button button_Dress;
-    static final int CAM_REQUEST = 1;
     public static String imageName;
     @Override
     protected void onCreate(Bundle savedInstanceBundle){

@@ -24,7 +24,9 @@
         </activity>
         <activity android:name=".ShowDress" />
         <activity android:name=".ChooseCategory" />
-        <activity android:name=".Spinner"></activity>
+        <activity android:name=".SpinnerActivity"></activity>
+
+
     </application>
 
 </manifest>

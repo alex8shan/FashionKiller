@@ -21,8 +21,8 @@ public class SpinnerActivity extends AppCompatActivity {
     Button confirm;
     Spinner spinner1;
     Spinner spinner2;
-    static String [] array1;
-    static String [] array2;
+    public static String [] array1;
+    public static String [] array2;
     FileInputStream fis;
     Scanner input;
     String imageName;
