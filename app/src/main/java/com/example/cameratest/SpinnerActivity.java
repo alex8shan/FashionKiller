@@ -28,8 +28,8 @@ public class SpinnerActivity extends AppCompatActivity {
     Button confirm;
     Spinner spinner1;
     Spinner spinner2;
-    public static List<String> array1;
-    public static List<String> array2;
+    public static List<String> array1 = new ArrayList<String>();
+    public static List<String> array2 = new ArrayList<String>();
     FileInputStream fis;
     Scanner input;
     String imageName;
@@ -58,6 +58,7 @@ public class SpinnerActivity extends AppCompatActivity {
                         try {
                             input = new Scanner(new FileInputStream(new File(Environment.getExternalStorageDirectory(), "1.txt")));
                             int lineCount = 0;
+                            array1 = new ArrayList<String>();
                             while (input.hasNextLine()) {
                                 array1.add(input.nextLine());
                             }
@@ -105,6 +106,7 @@ public class SpinnerActivity extends AppCompatActivity {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
+                    }
                         //TIME FOR SPINNER 2
 
                         if (spinner2.getSelectedItem().equals("short shirts")) {
@@ -166,7 +168,6 @@ public class SpinnerActivity extends AppCompatActivity {
                         startActivity(showDress);
                     }
                 }
-            }
         });
     }
 }

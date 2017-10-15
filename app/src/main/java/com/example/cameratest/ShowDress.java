@@ -6,10 +6,12 @@ import android.graphics.BitmapFactory;
 
 import android.os.Environment;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.view.VelocityTrackerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.VelocityTracker;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -58,27 +60,89 @@ public class ShowDress extends AppCompatActivity {
             imageView.setImageBitmap(myBitmap);
         }
         if(imageFile2.exists()){
-            Bitmap myBitmap = BitmapFactory.decodeFile(imageFile1.getAbsolutePath());
+            Bitmap myBitmap = BitmapFactory.decodeFile(imageFile2.getAbsolutePath());
 
             imageView2.setImageBitmap(myBitmap);
         }
 
 
 
-
-        ConstraintLayout rl = (ConstraintLayout) findViewById(R.id.showDress);
-
-        rl.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent event) {
-                Log.i("move", "something");
-                imageView.setImageResource(R.drawable.ic_launcher);
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    Toast.makeText(getApplicationContext(), "Swiped Down", Toast.LENGTH_SHORT);
-                    return true;
-                }
-                return false;
+        imageView.setOnTouchListener(new OnSwipeTouchListener(ShowDress.this) {
+            public void onSwipeTop() {
+                Toast.makeText(ShowDress.this, "top", Toast.LENGTH_SHORT).show();
             }
+            public void onSwipeRight() {
+                imageName1 = getRandom(SpinnerActivity.array1);
+
+                File imageFile1 = new File(Environment.getExternalStorageDirectory(), imageName1);
+
+                final ImageView imageView = (ImageView) findViewById(R.id.imageView);
+
+                if(imageFile1.exists()){
+
+                    Bitmap myBitmap = BitmapFactory.decodeFile(imageFile1.getAbsolutePath());
+
+                    imageView.setImageBitmap(myBitmap);
+                };
+            }
+            public void onSwipeLeft() {
+                imageName1 = getRandom(SpinnerActivity.array1);
+
+                File imageFile1 = new File(Environment.getExternalStorageDirectory(), imageName1);
+
+                final ImageView imageView = (ImageView) findViewById(R.id.imageView);
+
+                if(imageFile1.exists()){
+
+                    Bitmap myBitmap = BitmapFactory.decodeFile(imageFile1.getAbsolutePath());
+
+                    imageView.setImageBitmap(myBitmap);
+                }
+
+            }
+            public void onSwipeBottom() {
+                Toast.makeText(ShowDress.this, "bottom", Toast.LENGTH_SHORT).show();
+            }
+
+        });
+
+        imageView2.setOnTouchListener(new OnSwipeTouchListener(ShowDress.this) {
+            public void onSwipeTop() {
+                Toast.makeText(ShowDress.this, "top", Toast.LENGTH_SHORT).show();
+            }
+            public void onSwipeRight() {
+                imageName2 = getRandom(SpinnerActivity.array2);
+
+                File imageFile2 = new File(Environment.getExternalStorageDirectory(), imageName2);
+
+                final ImageView imageView = (ImageView) findViewById(R.id.imageView2);
+
+                if(imageFile2.exists()){
+
+                    Bitmap myBitmap = BitmapFactory.decodeFile(imageFile2.getAbsolutePath());
+
+                    imageView.setImageBitmap(myBitmap);
+                };
+            }
+            public void onSwipeLeft() {
+                imageName2 = getRandom(SpinnerActivity.array2);
+
+                File imageFile1 = new File(Environment.getExternalStorageDirectory(), imageName2);
+
+                final ImageView imageView = (ImageView) findViewById(R.id.imageView2);
+
+                if(imageFile1.exists()){
+
+                    Bitmap myBitmap = BitmapFactory.decodeFile(imageFile1.getAbsolutePath());
+
+                    imageView.setImageBitmap(myBitmap);
+                }
+
+            }
+            public void onSwipeBottom() {
+                Toast.makeText(ShowDress.this, "bottom", Toast.LENGTH_SHORT).show();
+            }
+
         });
     }
 
