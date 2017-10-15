@@ -1,5 +1,6 @@
 package com.example.cameratest;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +10,7 @@ import android.widget.Toast;
 import java.io.*;
 
 //This activity will let the user choose the categories of cloth.
-public class chooseCat extends AppCompatActivity {
+public class ChooseCat extends Activity {
     Button setLongPants = (Button) findViewById(R.id.setLongPants);
     Button setShortPants = (Button) findViewById(R.id.setShortPants);
     Button setLongShirts = (Button) findViewById(R.id.setShortShirts);

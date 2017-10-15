@@ -22,7 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".chooseCat"></activity>
+        <activity android:name=".ChooseCat" />
+        <activity android:name=".ShowDress"></activity>
     </application>
 
 </manifest>

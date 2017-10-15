@@ -2,7 +2,6 @@ package com.example.cameratest;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.icu.text.SimpleDateFormat;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.os.Bundle;
@@ -11,10 +10,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import java.io.File;
-import java.security.Timestamp;
 
 public class MainActivity extends Activity {
-    Button button;
+    Button takePic;
+    Button showDress;
     ImageView imageView;
     static final int CAM_REQUEST = 1;
     public static String imageName;
@@ -24,9 +23,9 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button = (Button) findViewById(R.id.button_capture);
+        takePic = (Button) findViewById(R.id.button_capture);
         imageView = (ImageView) findViewById(R.id.imageView);
-        button.setOnClickListener(new View.OnClickListener() {
+        takePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -34,6 +33,14 @@ public class MainActivity extends Activity {
 
                 camera_intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
                 startActivityForResult(camera_intent, CAM_REQUEST);
+            }
+        });
+
+        showDress = (Button)findViewById(R.id.showDress);
+        showDress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showDress = new Intent(v.getContext(), ShowDress.class);
             }
         });
     }
@@ -44,15 +51,16 @@ public class MainActivity extends Activity {
             folder.mkdir();
         }
         imageName = String.valueOf(System.currentTimeMillis())+".jpg";
-        File image_file = new File(folder, "lol.jpg");
+        File image_file = new File(folder, imageName);
         return image_file;
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent){
-        Intent chooseCategory = new Intent(getApplicationContext(), chooseCat.class);
-        Bundle extras = intent.getData();
-        chooseCategory.putExtras(extras);
+        Intent chooseCategory = new Intent(imageView.getContext(), ChooseCat.class);
         startActivity(chooseCategory);
     }
+
+
+
 
 }

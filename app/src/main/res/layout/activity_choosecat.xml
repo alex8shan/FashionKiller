@@ -4,21 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.cameratest.chooseCat">
+    tools:context="com.example.cameratest.ChooseCat">
 
     <Button
         android:id="@+id/setLongPants"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="113dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="-50dp"
         android:text="Long Pants"
         app:layout_constraintBottom_toBottomOf="@+id/setShortPants"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/setLongShirts" />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/setLongShirts"
@@ -63,6 +61,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/setLongShirts"
-        app:layout_constraintVertical_bias="0.672" />
+        app:layout_constraintVertical_bias="0.512" />
 
 </android.support.constraint.ConstraintLayout>
