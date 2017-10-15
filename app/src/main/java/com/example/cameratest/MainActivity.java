@@ -44,7 +44,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         if (requestCode == 0 && resultCode == RESULT_OK){
-            Intent intent = new Intent(this, ChooseCategory.class);
+            //Intent intent = new Intent(this, ChooseCategory.class);
+            //intent.putExtra("FILENAME", imageName);
+            //startActivity(intent);
+
+            Intent intent = new Intent(this, Camera_Filter.class);
             intent.putExtra("FILENAME", imageName);
             startActivity(intent);
 
