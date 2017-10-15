@@ -28,8 +28,8 @@ public class SpinnerActivity extends AppCompatActivity {
     Button confirm;
     Spinner spinner1;
     Spinner spinner2;
-    public static String [] array1;
-    public static String [] array2;
+    public static List<String> array1;
+    public static List<String> array2;
     FileInputStream fis;
     Scanner input;
     String imageName;
@@ -47,214 +47,124 @@ public class SpinnerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if(spinner1.getSelectedItem().equals(spinner2.getSelectedItem()))
-                {
+                if (spinner1.getSelectedItem().equals(spinner2.getSelectedItem())) {
                     //WARN THE USER TO RESELECT!!!
-                } else if(spinner1.getSelectedItem().equals(null)||spinner2.getSelectedItem().equals(null)){
+                } else if (spinner1.getSelectedItem().equals(null) || spinner2.getSelectedItem().equals(null)) {
                     //WARN THE USER TO RESELECT!!!
                 } else {
                     //LET THE PARTY BEGIN!!!!!!
-                    if(spinner1.getSelectedItem().equals("short shirts")){
+                    if (spinner1.getSelectedItem().equals("short shirts")) {
                         //get 1.txt
                         try {
-                            input = new Scanner(new FileInputStream(new File(Environment.getExternalStorageDirectory(), "1.txt"))) ;
+                            input = new Scanner(new FileInputStream(new File(Environment.getExternalStorageDirectory(), "1.txt")));
                             int lineCount = 0;
-                            while(input.hasNextLine())
-                            {
-                                imageName = input.nextLine();
-                                lineCount++;
-                            }
-                            array1 = new String [lineCount];
-                            lineCount = 0;
-                            //reset Scanner
-                            input.reset();
-                            while(input.hasNextLine())
-                            {
-                                array1[lineCount] = input.nextLine();
-                                lineCount++;
+                            while (input.hasNextLine()) {
+                                array1.add(input.nextLine());
                             }
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                    } else if(spinner1.getSelectedItem().equals("long shirts")){
+                    } else if (spinner1.getSelectedItem().equals("long shirts")) {
                         //get 2.txt
                         try {
-                            input = new Scanner(new FileInputStream(new File(Environment.getExternalStorageDirectory(), "2.txt"))) ;
+                            input = new Scanner(new FileInputStream(new File(Environment.getExternalStorageDirectory(), "2.txt")));
                             int lineCount = 0;
-                            while(input.hasNextLine())
-                            {
-                                imageName = input.nextLine();
-                                lineCount++;
-                            }
-                            array1 = new String [lineCount];
-                            lineCount = 0;
-                            //reset Scanner
-                            input.reset();
-                            while(input.hasNextLine())
-                            {
-                                array1[lineCount] = input.nextLine();
-                                lineCount++;
+                            while (input.hasNextLine()) {
+                                array1.add(input.nextLine());
                             }
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                    } else if(spinner1.getSelectedItem().equals("shorts")){
+                    } else if (spinner1.getSelectedItem().equals("shorts")) {
                         //get 3.txt
                         try {
-                            input = new Scanner(new FileInputStream(new File(Environment.getExternalStorageDirectory(), "3.txt"))) ;
+                            input = new Scanner(new FileInputStream(new File(Environment.getExternalStorageDirectory(), "3.txt")));
                             int lineCount = 0;
-                            while(input.hasNextLine())
-                            {
-                                imageName = input.nextLine();
-                                lineCount++;
-                            }
-                            array1 = new String [lineCount];
-                            lineCount = 0;
-                            //reset Scanner
-                            input.reset();
-                            while(input.hasNextLine())
-                            {
-                                array1[lineCount] = input.nextLine();
-                                lineCount++;
+                            while (input.hasNextLine()) {
+                                array1.add(input.nextLine());
                             }
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                    } else if(spinner1.getSelectedItem().equals("pants")){
+                    } else if (spinner1.getSelectedItem().equals("pants")) {
                         //get 4.txt
                         try {
-                            input = new Scanner(new FileInputStream(new File(Environment.getExternalStorageDirectory(), "4.txt"))) ;
+                            input = new Scanner(new FileInputStream(new File(Environment.getExternalStorageDirectory(), "4.txt")));
                             int lineCount = 0;
-                            while(input.hasNextLine())
-                            {
-                                imageName = input.nextLine();
-                                lineCount++;
-                            }
-                            array1 = new String [lineCount];
-                            lineCount = 0;
-                            //reset Scanner
-                            input.reset();
-                            while(input.hasNextLine())
-                            {
-                                array1[lineCount] = input.nextLine();
-                                lineCount++;
+                            while (input.hasNextLine()) {
+                                array1.add(input.nextLine());
                             }
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
+                        //TIME FOR SPINNER 2
+
+                        if (spinner2.getSelectedItem().equals("short shirts")) {
+                            //get 1.txt
+                            try {
+                                input = new Scanner(new FileInputStream(new File(Environment.getExternalStorageDirectory(), "1.txt")));
+                                int lineCount = 0;
+                                while (input.hasNextLine()) {
+                                    array2.add(input.nextLine());
+                                }
+                            } catch (FileNotFoundException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else if (spinner2.getSelectedItem().equals("long shirts")) {
+                            //get 2.txt
+                            try {
+                                input = new Scanner(new FileInputStream(new File(Environment.getExternalStorageDirectory(), "2.txt")));
+                                int lineCount = 0;
+                                while (input.hasNextLine()) {
+                                    array2.add(input.nextLine());
+                                }
+                            } catch (FileNotFoundException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else if (spinner2.getSelectedItem().equals("shorts")) {
+                            //get 3.txt
+                            try {
+                                input = new Scanner(new FileInputStream(new File(Environment.getExternalStorageDirectory(), "3.txt")));
+                                int lineCount = 0;
+                                while (input.hasNextLine()) {
+                                    array2.add(input.nextLine());
+                                }
+                            } catch (FileNotFoundException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else if (spinner2.getSelectedItem().equals("pants")) {
+                            //get 4.txt
+                            try {
+                                input = new Scanner(new FileInputStream(new File(Environment.getExternalStorageDirectory(), "4.txt")));
+                                int lineCount = 0;
+                                while (input.hasNextLine()) {
+                                    array2.add(input.nextLine());
+                                }
+                            } catch (FileNotFoundException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        //intention that jumps to showDress
+                        Intent showDress = new Intent(v.getContext(), ShowDress.class);
+                        startActivity(showDress);
                     }
-                    //TIME FOR SPINNER 2
-
-                    if(spinner2.getSelectedItem().equals("short shirts")){
-                        //get 1.txt
-                        try {
-                            input = new Scanner(new FileInputStream(new File(Environment.getExternalStorageDirectory(), "1.txt"))) ;
-                            int lineCount = 0;
-                            while(input.hasNextLine())
-                            {
-                                imageName = input.nextLine();
-                                lineCount++;
-                            }
-                            array2 = new String [lineCount];
-                            lineCount = 0;
-                            //reset Scanner
-                            input.reset();
-                            while(input.hasNextLine())
-                            {
-                                array2[lineCount] = input.nextLine();
-                                lineCount++;
-                            }
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    } else if(spinner2.getSelectedItem().equals("long shirts")){
-                        //get 2.txt
-                        try {
-                            input = new Scanner(new FileInputStream(new File(Environment.getExternalStorageDirectory(), "2.txt"))) ;
-                            int lineCount = 0;
-                            while(input.hasNextLine())
-                            {
-                                imageName = input.nextLine();
-                                lineCount++;
-                            }
-                            array2 = new String [lineCount];
-                            lineCount = 0;
-                            //reset Scanner
-                            input.reset();
-                            while(input.hasNextLine())
-                            {
-                                array2[lineCount] = input.nextLine();
-                                lineCount++;
-                            }
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    } else if(spinner2.getSelectedItem().equals("shorts")){
-                        //get 3.txt
-                        try {
-                            input = new Scanner(new FileInputStream(new File(Environment.getExternalStorageDirectory(), "3.txt"))) ;
-                            int lineCount = 0;
-                            while(input.hasNextLine())
-                            {
-                                imageName = input.nextLine();
-                                lineCount++;
-                            }
-                            array2 = new String [lineCount];
-                            lineCount = 0;
-                            //reset Scanner
-                            input.reset();
-                            while(input.hasNextLine())
-                            {
-                                array2[lineCount] = input.nextLine();
-                                lineCount++;
-                            }
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    } else if(spinner2.getSelectedItem().equals("pants")){
-                        //get 4.txt
-                        try {
-                            input = new Scanner(new FileInputStream(new File(Environment.getExternalStorageDirectory(), "4.txt"))) ;
-                            int lineCount = 0;
-                            while(input.hasNextLine())
-                            {
-                                imageName = input.nextLine();
-                                lineCount++;
-                            }
-                            array2 = new String [lineCount];
-                            lineCount = 0;
-                            //reset Scanner
-                            input.reset();
-                            while(input.hasNextLine())
-                            {
-                                array2[lineCount] = input.nextLine();
-                                lineCount++;
-                            }
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                    //intention that jumps to showDress
-                    Intent showDress = new Intent(v.getContext(), ShowDress.class);
-                    startActivity(showDress);
-
                 }
             }
         });

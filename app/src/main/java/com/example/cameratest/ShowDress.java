@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.util.List;
 import java.util.Random;
 
 import org.opencv.android.OpenCVLoader;
@@ -28,11 +29,11 @@ import static com.example.cameratest.R.id.imageView;
 public class ShowDress extends AppCompatActivity {
     String imageName1;
     String imageName2;
-    public String getRandom(String[] fileName)
+    public String getRandom(List<String> fileName)
     {
         Random generator = new Random();
-        int randomIndex = generator.nextInt(fileName.length);
-        return fileName[randomIndex];
+        int randomIndex = generator.nextInt(fileName.size());
+        return fileName.get(randomIndex);
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
