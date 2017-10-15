@@ -1,6 +1,5 @@
 package com.example.cameratest;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
@@ -21,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceBundle){
         super.onCreate(savedInstanceBundle);
         setContentView(R.layout.activity_main);
-        button_Capture = (Button) findViewById(R.id.button_Capture);
+        button_Capture = (Button) findViewById(R.id.longshirt);
         button_Dress = (Button) findViewById(R.id.button_Dress);
         button_Capture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             }
          });
     }
-    
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         if (requestCode == 0 && resultCode == RESULT_OK){

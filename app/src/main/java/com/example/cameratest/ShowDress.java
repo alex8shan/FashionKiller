@@ -17,8 +17,6 @@ import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
 
-import static org.opencv.imgproc.Imgproc.COLOR_BGR2GRAY;
-
 
 public class ShowDress extends AppCompatActivity {
 
@@ -33,7 +31,7 @@ public class ShowDress extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.activity_dress);
 
         Intent intent = getIntent();
         String filename = intent.getStringExtra("FILENAME");
